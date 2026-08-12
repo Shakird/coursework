@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Contact North Star Bakery, request a pre-order, and find our hours and location at 412 Alder Street, Riverton.">
+  <title>Contact &amp; Pre-Orders | North Star Bakery</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <img class="site-logo" src="Bakery_c/bakery-logo_c.png" alt="North Star Bakery logo: a rounded loaf of bread with a wheat sheaf baked into the crust" width="200" height="170">
+
+      <nav aria-label="Main">
+        <ul class="nav-list">
+          <li><a class="nav-link" href="index.html">Home</a></li>
+          <li><a class="nav-link" href="products.html">Products</a></li>
+          <li><a class="nav-link" href="about.html">About</a></li>
+          <li><a class="nav-link" href="contact.html" aria-current="page">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <section>
+      <h1>Contact &amp; Pre-Orders</h1>
+      <p class="tagline">A real person reads every request and replies within one business day.</p>
+      <p>
+        Use the form below to reserve breads and pastries, start a cake order, or just ask a
+        question. Nothing is charged here. You pay at the counter when you pick up.
+      </p>
+    </section>
+
+    <section>
+      <h2>Request a pre-order or ask a question</h2>
+
+      <form action="#" method="post">
+
+        <fieldset>
+          <legend>Your contact information</legend>
+
+          <div class="form-grid">
+            <div class="form-row">
+              <label for="name">Full name</label>
+              <input type="text" id="name" name="name" required minlength="2" maxlength="80"
+                     autocomplete="name" placeholder="Jordan Alvarez">
+            </div>
+
+            <div class="form-row">
+              <label for="email">Email address</label>
+              <input type="email" id="email" name="email" required maxlength="120"
+                     autocomplete="email" placeholder="you@example.com">
+            </div>
+          </div>
+
+          <div class="form-row">
+            <label for="phone">Phone number (optional)</label>
+            <input type="tel" id="phone" name="phone" pattern="[0-9\-\(\)\s\+]{7,20}"
+                   maxlength="20" autocomplete="tel" placeholder="(555) 555-0142">
+            <p class="hint">Only if you would like us to call instead of email.</p>
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend>What can we do for you?</legend>
+
+          <fieldset class="choice-group">
+            <legend class="choice-legend">Request type (choose one)</legend>
+
+            <div class="choice">
+              <input type="radio" id="type-preorder" name="request-type" value="pre-order" required>
+              <label for="type-preorder">Pre-order</label>
+            </div>
+
+            <div class="choice">
+              <input type="radio" id="type-cake" name="request-type" value="custom-cake">
+              <label for="type-cake">Custom cake (72 hours&rsquo; notice, please)</label>
+            </div>
+
+            <div class="choice">
+              <input type="radio" id="type-question" name="request-type" value="general-question">
+              <label for="type-question">General question</label>
+            </div>
+          </fieldset>
+
+          <div class="form-grid">
+            <div class="form-row">
+              <label for="pickup-date">Preferred pickup date</label>
+              <input type="date" id="pickup-date" name="pickup-date" required min="2026-08-13">
+            </div>
+
+            <div class="form-row">
+              <label for="pickup-time">Preferred pickup time</label>
+              <select id="pickup-time" name="pickup-time" required>
+                <option value="">Choose a time window</option>
+                <option value="morning">Morning (6:30 &ndash; 10:00 a.m.)</option>
+                <option value="midday">Midday (10:00 a.m. &ndash; 1:00 p.m.)</option>
+                <option value="afternoon">Afternoon (1:00 &ndash; 5:00 p.m.)</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <label for="items">Item details</label>
+            <textarea id="items" name="items" rows="6" required
+                      minlength="10" maxlength="1000"
+                      placeholder="Example: 2 Signature Country Sourdough loaves and a box of six mixed pastries. Or, for a cake: 8-inch lemon poppyseed, &quot;Happy Birthday Rosa&quot; in brown lettering."></textarea>
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend>Allergy and dietary notes</legend>
+
+          <p>
+            Our kitchen works with wheat, rye, dairy, eggs, tree nuts, and sesame on shared
+            equipment, so we cannot guarantee any item is allergen-free. Tell us what to watch
+            for and we will call you before we bake.
+          </p>
+
+          <div class="form-row">
+            <label for="allergies">Allergy notes (if applicable)</label>
+            <textarea id="allergies" name="allergies" rows="4" maxlength="500"
+                      placeholder="Example: tree nut allergy in the group, so please keep the pastry box nut-free if possible."></textarea>
+          </div>
+
+          <div class="choice">
+            <input type="checkbox" id="allergy-ack" name="allergy-ack" value="acknowledged">
+            <label for="allergy-ack">I understand this is a shared kitchen and cross-contact is possible.</label>
+          </div>
+        </fieldset>
+
+        <div class="form-actions">
+          <button type="submit">Send request</button>
+          <button type="reset">Clear form</button>
+        </div>
+
+      </form>
+    </section>
+
+    <section>
+      <h2>Find us</h2>
+
+      <div class="split">
+        <div>
+          <address class="address">
+            <strong>North Star Bakery</strong><br>
+            412 Alder Street<br>
+            Riverton, MN 55082
+          </address>
+          <p>
+            Phone: <a href="tel:+15555550142">(555) 555-0142</a><br>
+            Email: <a href="mailto:hello@northstarbakery.example">hello@northstarbakery.example</a>
+          </p>
+        </div>
+
+        <div>
+          <p>
+            We are on the northeast corner of Fifth and Alder, next door to the hardware store.
+            Two-hour street parking runs along Alder, there is a free lot behind the building off
+            Fifth, and the Route 12 bus stops half a block south. The front entrance is step-free.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Hours of operation</h2>
+
+      <ul class="hours-list">
+        <li><span class="day">Monday</span> <span>Closed</span></li>
+        <li><span class="day">Tuesday</span> <span>6:30 a.m. &ndash; 5:00 p.m.</span></li>
+        <li><span class="day">Wednesday</span> <span>6:30 a.m. &ndash; 5:00 p.m.</span></li>
+        <li><span class="day">Thursday</span> <span>6:30 a.m. &ndash; 5:00 p.m.</span></li>
+        <li><span class="day">Friday</span> <span>6:30 a.m. &ndash; 5:00 p.m.</span></li>
+        <li><span class="day">Saturday</span> <span>7:00 a.m. &ndash; 4:00 p.m.</span></li>
+        <li><span class="day">Sunday</span> <span>7:00 a.m. &ndash; 1:00 p.m.</span></li>
+      </ul>
+
+      <p>
+        Pre-orders can be picked up any time we are open. Cake orders need 72 hours&rsquo;
+        notice, and two-tier cakes need a full week. Holiday hours are posted on the front
+        window two weeks ahead.
+      </p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <p>&copy; 2026 North Star Bakery, 412 Alder Street, Riverton, MN 55082</p>
+      <p>Baked fresh every morning by your neighbors.</p>
+    </div>
+  </footer>
+
+</body>
+</html>
