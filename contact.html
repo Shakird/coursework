@@ -21,6 +21,9 @@
           <li><a class="nav-link" href="products.html">Products</a></li>
           <li><a class="nav-link" href="about.html">About</a></li>
           <li><a class="nav-link" href="contact.html" aria-current="page">Contact</a></li>
+          <li class="nav-basket">
+            <a class="nav-link nav-basket-link" href="products.html#preorder-basket" data-basket-link>Pre-order<span class="basket-count" data-basket-count hidden>0</span></a>
+          </li>
         </ul>
       </nav>
     </div>
@@ -32,15 +35,23 @@
       <h1>Contact &amp; Pre-Orders</h1>
       <p class="tagline">A real person reads every request and replies within one business day.</p>
       <p>
-        Use the form below to reserve breads and pastries, start a cake order, or just ask a
-        question. Nothing is charged here. You pay at the counter when you pick up.
+        Use the form below to reserve breads, pastries, and the cakes we have ready today, or
+        just ask a question. Nothing is charged here. You pay at the counter when you pick up.
+      </p>
+      <p>
+        <strong>Custom cakes are the exception.</strong> Those are ordered by phone on
+        <a href="tel:+15555550142">(555) 555-0142</a> and paid for in advance, with 72
+        hours&rsquo; notice. You are very welcome to start here instead and we will call you
+        back with a quote.
       </p>
     </section>
 
     <section>
       <h2>Request a pre-order or ask a question</h2>
 
-      <form action="#" method="post">
+      <div class="panel panel-success" data-form-success tabindex="-1" role="status" hidden></div>
+
+      <form action="#" method="post" novalidate data-order-form>
 
         <fieldset>
           <legend>Your contact information</legend>
@@ -50,12 +61,14 @@
               <label for="name">Full name</label>
               <input type="text" id="name" name="name" required minlength="2" maxlength="80"
                      autocomplete="name" placeholder="Jordan Alvarez">
+              <p class="field-error" id="name-error" data-error-for="name" role="alert" hidden></p>
             </div>
 
             <div class="form-row">
               <label for="email">Email address</label>
               <input type="email" id="email" name="email" required maxlength="120"
                      autocomplete="email" placeholder="you@example.com">
+              <p class="field-error" id="email-error" data-error-for="email" role="alert" hidden></p>
             </div>
           </div>
 
@@ -63,7 +76,8 @@
             <label for="phone">Phone number (optional)</label>
             <input type="tel" id="phone" name="phone" pattern="[0-9\-\(\)\s\+]{7,20}"
                    maxlength="20" autocomplete="tel" placeholder="(555) 555-0142">
-            <p class="hint">Only if you would like us to call instead of email.</p>
+            <p class="hint" id="phone-hint">Only if you would like us to call instead of email.</p>
+            <p class="field-error" id="phone-error" data-error-for="phone" role="alert" hidden></p>
           </div>
         </fieldset>
 
@@ -80,19 +94,22 @@
 
             <div class="choice">
               <input type="radio" id="type-cake" name="request-type" value="custom-cake">
-              <label for="type-cake">Custom cake (72 hours&rsquo; notice, please)</label>
+              <label for="type-cake">Ask about a custom cake (we will call you back with a quote)</label>
             </div>
 
             <div class="choice">
               <input type="radio" id="type-question" name="request-type" value="general-question">
               <label for="type-question">General question</label>
             </div>
+
+            <p class="field-error" id="request-type-error" data-error-for="requestType" role="alert" hidden></p>
           </fieldset>
 
           <div class="form-grid">
             <div class="form-row">
               <label for="pickup-date">Preferred pickup date</label>
-              <input type="date" id="pickup-date" name="pickup-date" required min="2026-08-13">
+              <input type="date" id="pickup-date" name="pickup-date" required min="2026-08-15">
+              <p class="field-error" id="pickup-date-error" data-error-for="pickupDate" role="alert" hidden></p>
             </div>
 
             <div class="form-row">
@@ -103,14 +120,19 @@
                 <option value="midday">Midday (10:00 a.m. &ndash; 1:00 p.m.)</option>
                 <option value="afternoon">Afternoon (1:00 &ndash; 5:00 p.m.)</option>
               </select>
+              <p class="field-error" id="pickup-time-error" data-error-for="pickupTime" role="alert" hidden></p>
             </div>
           </div>
 
           <div class="form-row">
             <label for="items">Item details</label>
+            <p class="prefill-notice" data-basket-prefill-notice role="status" hidden>
+              We have filled this in from your pre-order basket. Edit it as much as you like.
+            </p>
             <textarea id="items" name="items" rows="6" required
                       minlength="10" maxlength="1000"
                       placeholder="Example: 2 Signature Country Sourdough loaves and a box of six mixed pastries. Or, for a cake: 8-inch lemon poppyseed, &quot;Happy Birthday Rosa&quot; in brown lettering."></textarea>
+            <p class="field-error" id="items-error" data-error-for="items" role="alert" hidden></p>
           </div>
         </fieldset>
 
@@ -127,12 +149,15 @@
             <label for="allergies">Allergy notes (if applicable)</label>
             <textarea id="allergies" name="allergies" rows="4" maxlength="500"
                       placeholder="Example: tree nut allergy in the group, so please keep the pastry box nut-free if possible."></textarea>
+            <p class="field-error" id="allergies-error" data-error-for="allergies" role="alert" hidden></p>
           </div>
 
           <div class="choice">
             <input type="checkbox" id="allergy-ack" name="allergy-ack" value="acknowledged">
             <label for="allergy-ack">I understand this is a shared kitchen and cross-contact is possible.</label>
           </div>
+
+          <p class="field-error" id="allergy-ack-error" data-error-for="allergyAck" role="alert" hidden></p>
         </fieldset>
 
         <div class="form-actions">
@@ -182,6 +207,8 @@
       <p>Baked fresh every morning by your neighbors.</p>
     </div>
   </footer>
+
+  <script type="module" src="js/main.js"></script>
 
 </body>
 </html>
